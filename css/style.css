@@ -1,11 +1,45 @@
-/*
-COLORS:
+/** there are 2 types of animations in css one created using transition property and others using keyframes keyframes are more advanced  */
+/* you can use animation with other states like hover focus etc they need not to be shown only when page loads */
+@keyframes moveInLeft {
+  /* 0% before animation starts and 100% when animation finishes */
+  /* you can put any values of percentages you like */
+  /* browser are optimized for only 2 properties to animate opacity and transform property but usign transform property you can do a whole lot of things */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+    /* rotate3d(1, 2.0, 3.0, 10deg); */ }
+  60% {
+    transform: rotate(120deg); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
+@keyframes moveInRight {
+  /* 0% before animation starts and 100% when animation finishes */
+  /* you can put any values of percentages you like */
+  /* browser are optimized for only 2 properties to animate opacity and transform property but usign transform property you can do a whole lot of things */
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
-*/
+@keyframes moveInBottom {
+  /* 0% before animation starts and 100% when animation finishes */
+  /* you can put any values of percentages you like */
+  /* browser are optimized for only 2 properties to animate opacity and transform property but usign transform property you can do a whole lot of things */
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
 /*************************************************************  */
 /* RESET */
 /*************************************************************  */
@@ -23,41 +57,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 1.6rem; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
   box-sizing: border-box; }
-
-.header {
-  position: relative;
-  height: 95vh;
-  /* first one will be on top of second and so on */
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
-  background-size: cover;
-  background-position: top;
-  /** CLIP PATH: polygon accepts 4 coordinates which will give you polygon of any element, coordinate should be in clocwise direction (top left, top right, bottom right, bottom left)   */
-  /*! this percentage values are wrt element, top left (0,0), top-center (50%,0), top-right(100%,0), bottom-right (100%,100%), bottom-left (0,100%) , bottom-center (50% 100%) */
-  /**  you can use any units like %, rem, px, vh, vw etc  */
-  /** use clippy tool to make your life easy  */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /** centering element i.e heading   */
-    /* this value are with respect to element itself*/
-    transform: translate(-50%, -50%);
-    /* text align  centers all inline elements like a elements etc , this is also done for center the button in header as that is also an a element and it's inline */
-    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -91,36 +91,13 @@ body {
     /* shorthand property for animation */
     animation: moveInRight 1s ease-out; }
 
-/** there are 2 types of animations in css one created using transition property and others using keyframes keyframes are more advanced  */
-/* you can use animation with other states like hover focus etc they need not to be shown only when page loads */
-@keyframes moveInLeft {
-  /* 0% before animation starts and 100% when animation finishes */
-  /* you can put any values of percentages you like */
-  /* browser are optimized for only 2 properties to animate opacity and transform property but usign transform property you can do a whole lot of things */
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem);
-    /* rotate3d(1, 2.0, 3.0, 10deg); */ }
-  60% {
-    transform: rotate(120deg); }
-  80% {
-    transform: translateX(1rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
-
-@keyframes moveInRight {
-  /* 0% before animation starts and 100% when animation finishes */
-  /* you can put any values of percentages you like */
-  /* browser are optimized for only 2 properties to animate opacity and transform property but usign transform property you can do a whole lot of things */
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 1.6rem; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
 
 .btn {
   /* pseudo elements allows us to style element which are selected with pseudo elements */ }
@@ -168,13 +145,58 @@ body {
     /** backwards applys 0%  properties before animation starts  */
     animation-fill-mode: backwards; }
 
-@keyframes moveInBottom {
-  /* 0% before animation starts and 100% when animation finishes */
-  /* you can put any values of percentages you like */
-  /* browser are optimized for only 2 properties to animate opacity and transform property but usign transform property you can do a whole lot of things */
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 *((100% - 3 * 6rem) / 4) +  6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 *((100% - 3 * 6rem) / 4) + 2* 6rem); }
+
+.header {
+  position: relative;
+  height: 95vh;
+  /* first one will be on top of second and so on */
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  /** CLIP PATH: polygon accepts 4 coordinates which will give you polygon of any element, coordinate should be in clocwise direction (top left, top right, bottom right, bottom left)   */
+  /*! this percentage values are wrt element, top left (0,0), top-center (50%,0), top-right(100%,0), bottom-right (100%,100%), bottom-left (0,100%) , bottom-center (50% 100%) */
+  /**  you can use any units like %, rem, px, vh, vw etc  */
+  /** use clippy tool to make your life easy  */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /** centering element i.e heading   */
+    /* this value are with respect to element itself*/
+    transform: translate(-50%, -50%);
+    /* text align  centers all inline elements like a elements etc , this is also done for center the button in header as that is also an a element and it's inline */
+    text-align: center; }

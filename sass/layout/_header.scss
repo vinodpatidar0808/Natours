@@ -1,0 +1,36 @@
+.header {
+    position: relative;
+    height: 95vh;
+    /* first one will be on top of second and so on */
+    // this works only  with sass where you can write hexadecimal color in rgba
+    background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero.jpg");
+    background-size: cover;
+    background-position: top;
+    /** CLIP PATH: polygon accepts 4 coordinates which will give you polygon of any element, coordinate should be in clocwise direction (top left, top right, bottom right, bottom left)   */
+    /*! this percentage values are wrt element, top left (0,0), top-center (50%,0), top-right(100%,0), bottom-right (100%,100%), bottom-left (0,100%) , bottom-center (50% 100%) */
+    /**  you can use any units like %, rem, px, vh, vw etc  */
+    /** use clippy tool to make your life easy  */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    // & copies the header of outer element
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /** centering element i.e heading   */
+        /* this value are with respect to element itself*/
+        transform: translate(-50%, -50%);
+        /* text align  centers all inline elements like a elements etc , this is also done for center the button in header as that is also an a element and it's inline */
+        text-align: center;
+    }
+}

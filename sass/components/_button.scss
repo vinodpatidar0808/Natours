@@ -1,0 +1,70 @@
+.btn {
+
+    &:link,
+    &visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        /* by default a element is inline */
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all 0.2s;
+        position: relative;
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        /* this translate values are wrt to initial state  */
+        transform: translateY(-1px);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+
+    }
+
+    /* pseudo elements allows us to style element which are selected with pseudo elements */
+
+    &::after {
+        /* content property is necessary for both after and before pseudo element */
+        content: "";
+
+        display: inline-block;
+        /** this pseudo elements are treated as child of element here children of btn, so when we say height width 100% it means they will  take height width 100% of parent  i.e button   */
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: #777;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+
+
+
+
+    .btn--animated {
+        /* name, duration timing fxn, delay */
+        animation: moveInBottom 0.5s ease-out .75s;
+        /** backwards applys 0%  properties before animation starts  */
+        animation-fill-mode: backwards;
+    }
+}

@@ -1,0 +1,66 @@
+/** there are 2 types of animations in css one created using transition property and others using keyframes keyframes are more advanced  */
+
+/* you can use animation with other states like hover focus etc they need not to be shown only when page loads */
+@keyframes moveInLeft {
+
+    /* 0% before animation starts and 100% when animation finishes */
+    /* you can put any values of percentages you like */
+    /* browser are optimized for only 2 properties to animate opacity and transform property but usign transform property you can do a whole lot of things */
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+        /* rotate3d(1, 2.0, 3.0, 10deg); */
+
+    }
+
+    60% {
+        transform: rotate(120deg);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+
+    /* 0% before animation starts and 100% when animation finishes */
+    /* you can put any values of percentages you like */
+    /* browser are optimized for only 2 properties to animate opacity and transform property but usign transform property you can do a whole lot of things */
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+
+    }
+
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+
+    /* 0% before animation starts and 100% when animation finishes */
+    /* you can put any values of percentages you like */
+    /* browser are optimized for only 2 properties to animate opacity and transform property but usign transform property you can do a whole lot of things */
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

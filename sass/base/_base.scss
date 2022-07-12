@@ -1,0 +1,25 @@
+// filenames starting with _ are partials which will be imported in main scss file and compiled from there
+
+
+/*************************************************************  */
+/* RESET */
+/*************************************************************  */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    /** this one is better practice , declaring box-sizing in body and inheriting from here  */
+    box-sizing: inherit;
+}
+
+html {
+    /** 10/16 *100 */
+    // this defines what 1rem is 
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}

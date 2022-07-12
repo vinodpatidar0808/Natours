@@ -1,0 +1,47 @@
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    /** animations sometimes shakes up and down to fix that problem this is the fix  */
+    /**allows to see us back part of the element  */
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        /*! other properties */
+        /** will wait for given amount of time before starting the animation */
+        /* animation-delay: 2s; */
+        /** this is the count you want animation to repeat  */
+        /* animation-iteration-count: 3; */
+        /** function for animation to appears like slow initially and faster later etc  */
+        animation-timing-function: ease-out;
+    }
+
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: 1.75rem;
+        font-weight: 700;
+        /* animation-name: moveInRight; */
+        /* animation-duration: 1s; */
+        /* shorthand property for animation */
+        animation: moveInRight 1s ease-out;
+    }
+}
+
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 1.6rem; */
+    line-height: 1.7;
+    color: #777;
+    padding: 3rem;
+}
