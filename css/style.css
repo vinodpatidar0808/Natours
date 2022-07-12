@@ -9,7 +9,9 @@ Dark green: #28b485
 /*************************************************************  */
 /* RESET */
 /*************************************************************  */
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   /* box-sizing: border-box; */
@@ -41,24 +43,21 @@ body {
   /**  you can use any units like %, rem, px, vh, vw etc  */
   /** use clippy tool to make your life easy  */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.logo {
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  /** centering element i.e heading   */
-  /* this value are with respect to element itself*/
-  transform: translate(-50%, -50%);
-  /* text align  centers all inline elements like a elements etc , this is also done for center the button in header as that is also an a element and it's inline */
-  text-align: center; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /** centering element i.e heading   */
+    /* this value are with respect to element itself*/
+    transform: translate(-50%, -50%);
+    /* text align  centers all inline elements like a elements etc , this is also done for center the button in header as that is also an a element and it's inline */
+    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -67,32 +66,30 @@ body {
   /**allows to see us back part of the element  */
   backface-visibility: hidden;
   margin-bottom: 6rem; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  /*! other properties */
-  /** will wait for given amount of time before starting the animation */
-  /* animation-delay: 2s; */
-  /** this is the count you want animation to repeat  */
-  /* animation-iteration-count: 3; */
-  /** function for animation to appears like slow initially and faster later etc  */
-  animation-timing-function: ease-out; }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 400;
-  letter-spacing: 1.75rem;
-  font-weight: 700;
-  /* animation-name: moveInRight; */
-  /* animation-duration: 1s; */
-  /* shorthand property for animation */
-  animation: moveInRight 1s ease-out; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /*! other properties */
+    /** will wait for given amount of time before starting the animation */
+    /* animation-delay: 2s; */
+    /** this is the count you want animation to repeat  */
+    /* animation-iteration-count: 3; */
+    /** function for animation to appears like slow initially and faster later etc  */
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.75rem;
+    font-weight: 700;
+    /* animation-name: moveInRight; */
+    /* animation-duration: 1s; */
+    /* shorthand property for animation */
+    animation: moveInRight 1s ease-out; }
 
 /** there are 2 types of animations in css one created using transition property and others using keyframes keyframes are more advanced  */
 /* you can use animation with other states like hover focus etc they need not to be shown only when page loads */
@@ -125,51 +122,51 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
-.btn:link, .btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  /* by default a element is inline */
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 1.6rem; }
-
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-
-.btn:active {
-  /* this translate values are wrt to initial state  */
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-
-.btn--white {
-  background-color: #fff;
-  color: #777; }
-
-/* pseudo elements allows us to style element which are selected with pseudo elements */
-.btn::after {
-  /* content property is necessary for both after and before pseudo element */
-  content: "";
-  display: inline-block;
-  /** this pseudo elements are treated as child of element here children of btn, so when we say height width 100% it means they will  take height width 100% of parent  i.e button   */
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s; }
-
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+.btn {
+  /* pseudo elements allows us to style element which are selected with pseudo elements */ }
+  .btn:link, .btnvisited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* by default a element is inline */
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    /* this translate values are wrt to initial state  */
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn::after {
+    /* content property is necessary for both after and before pseudo element */
+    content: "";
+    display: inline-block;
+    /** this pseudo elements are treated as child of element here children of btn, so when we say height width 100% it means they will  take height width 100% of parent  i.e button   */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s; }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn .btn--animated {
+    /* name, duration timing fxn, delay */
+    animation: moveInBottom 0.5s ease-out .75s;
+    /** backwards applys 0%  properties before animation starts  */
+    animation-fill-mode: backwards; }
 
 @keyframes moveInBottom {
   /* 0% before animation starts and 100% when animation finishes */
@@ -181,9 +178,3 @@ body {
   100% {
     opacity: 1;
     transform: translateX(0); } }
-
-.btn--animated {
-  /* name, duration timing fxn, delay */
-  animation: moveInBottom 0.5s ease-out .75s;
-  /** backwards applys 0%  properties before animation starts  */
-  animation-fill-mode: backwards; }
