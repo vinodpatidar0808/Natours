@@ -1,7 +1,7 @@
 .row {
     // 1140 is some standard this days so use rem
     max-width: $grid-width;
-    background-color: #eee;
+    // background-color: #eee;
     // to center block elements
     margin: 0 auto;
     // margin-bottom: $gutter-vertical;
@@ -15,7 +15,7 @@
 
     // attribute selector: ^ beginning with, * will select any class which contains col- , there are many other ways go and check on mdn if you like, no need to memorize any of this
     [class^="col-"] {
-        background-color: orangered;
+        // background-color: orangered;
 
         float: left;
 

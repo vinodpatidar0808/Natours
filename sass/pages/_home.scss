@@ -1,0 +1,9 @@
+.section-about {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0;
+
+    // the height of our previous section background is 95vh and it is clipped at 75 vh hence the difference is 25vh so we have to extend this background 20vh from top-right using clippath propery, the simpler way is just give margin top of -20vh 
+    // clip-path: polygon();
+    margin-top: -20vh;
+
+}
