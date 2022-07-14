@@ -10,6 +10,7 @@
     /*! this percentage values are wrt element, top left (0,0), top-center (50%,0), top-right(100%,0), bottom-right (100%,100%), bottom-left (0,100%) , bottom-center (50% 100%) */
     /**  you can use any units like %, rem, px, vh, vw etc  */
     /** use clippy tool to make your life easy  */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     // & copies the header of outer element
