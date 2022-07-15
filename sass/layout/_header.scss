@@ -3,7 +3,7 @@
     height: 95vh;
     /* first one will be on top of second and so on */
     // this works only  with sass where you can write hexadecimal color in rgba
-    background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero.jpg");
+    background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
     /** CLIP PATH: polygon accepts 4 coordinates which will give you polygon of any element, coordinate should be in clocwise direction (top left, top right, bottom right, bottom left)   */

@@ -13,9 +13,9 @@
 
     }
 
-    60% {
-        transform: rotate(120deg);
-    }
+    // 60% {
+    //     transform: rotate(120deg);
+    // }
 
     80% {
         transform: translateX(1rem);
@@ -35,7 +35,6 @@
     0% {
         opacity: 0;
         transform: translateX(10rem);
-
     }
 
     80% {
@@ -61,6 +60,6 @@
 
     100% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translate(0);
     }
 }

@@ -8,7 +8,6 @@
     height: 52rem;
 
     &__side {
-        background-color: orangered;
         height: 52rem;
         // color: #fff;
         // font-size: 2rem;
@@ -28,7 +27,7 @@
         }
 
         &--back {
-            background-color: green;
+            // background-color: green;
             // one side will already be rotated
             transform: rotateY(180deg);
 
