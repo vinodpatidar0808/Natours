@@ -1,5 +1,6 @@
 .btn {
-
+    // button does not have link and visited classes like anchor elements
+    &,
     &:link,
     &visited {
         text-transform: uppercase;
@@ -8,9 +9,14 @@
         /* by default a element is inline */
         display: inline-block;
         border-radius: 10rem;
-        transition: all 0.2s;
+        transition: all 0.2s ease;
         position: relative;
         font-size: $default-font-size;
+        border: none;
+        cursor: pointer;
+
+        // change for button element
+
     }
 
     &:hover {
@@ -23,7 +29,7 @@
         }
     }
 
-    &:active {
+    &:active,&:focus {
         /* this translate values are wrt to initial state  */
         transform: translateY(-1px);
         box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
