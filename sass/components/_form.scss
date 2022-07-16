@@ -18,6 +18,10 @@
         display: block;
         transition: all .3s;
 
+        @include respond(tab-port) {
+            width: 100%;
+        }
+
         &:focus {
             outline: none;
             box-shadow: 0 1rem 2rem rgba($color-black, .1);
@@ -49,7 +53,7 @@
 
     //  + adjacent sibling selector (right next to element), ~ this is for general sibling selector
     // element which you want to select as sibling needs to be selected after element
-    &__input:placeholder-shown + &__label {
+    &__input:placeholder-shown+&__label {
         // if you only use opacity then placeholder will still be present but not visible, that's why we have to use visibility. why we did not use visibility alone ? visibility can not be animated
         opacity: 0;
         // you can not animate the visibility, 
@@ -60,6 +64,11 @@
     &__radio-group {
         width: 49%;
         display: inline-block;
+
+        @include respond(tab-port) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-input {
@@ -100,7 +109,7 @@
     }
 
     // span which is styled as button is not direct child of input element, so it is has to be selected through label element
-    &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    &__radio-input:checked~&__radio-label &__radio-button::after {
         opacity: 1;
     }
 }

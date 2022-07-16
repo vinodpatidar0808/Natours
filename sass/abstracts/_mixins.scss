@@ -13,3 +13,77 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+// media queries manager 
+/*
+    0 - 600px: phone
+    600 - 900px : tablet portrait
+    900 - 1200px : tablet landscape
+    1200- 1800 : is where our normal style applies
+    1800px: - ..: big desktop screens
+*/
+
+
+@mixin respond-phone {
+    @media (max-width:900px) {
+        @content
+    }
+
+    ;
+}
+
+// we can define mixin for each break point and give it a name and use it whereever we need like respond-phone (used in base.scss)
+
+// we will use the approach where we define one mixin for all mediaqueries with @if of sass to manage responsiveness
+
+/*
+$breakpoint argument choices :
+--phone: 
+--tab-port :
+--tab-land :
+--big-desk : 
+*/
+
+// we don't use px in media queries as they won't respond to user preferences like zoom in or out etc
+// use relative units and in particular ems
+// rem: affected by root font-size
+// em : best option for media queries. divide px by 16 for ems
+// Order : base + typography > general layout + grid > page layout > components
+
+@mixin respond($breakpoint) {
+    @if $breakpoint ==phone {
+        @media (max-width:37.5em) {
+            // 600px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint ==tab-port {
+        @media (max-width:56.25em) {
+            //900px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint ==tab-land {
+        @media (max-width:75em) {
+            //1200px
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint ==big-desktop {
+        @media (min-width: 112.5em) {
+            //1800px
+            @content
+        }
+
+        ;
+    }
+}

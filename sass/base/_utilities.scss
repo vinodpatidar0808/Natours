@@ -1,10 +1,16 @@
 .u-center-text {
     // remember text-align: center; centers the text inside element and it also centers the inline and inline block elements also
     text-align: center !important;
+
+
 }
 
 .u-margin-bottom-big {
     margin-bottom: 8rem !important;
+
+    @include respond(tab-port) {
+        margin-bottom: 5rem !important;
+    }
 }
 
 .u-margin-bottom-medium {
