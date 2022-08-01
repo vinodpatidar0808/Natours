@@ -16,6 +16,7 @@
         left: 0;
         width: 100%;
         // hides the back part of element during transform
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         transition: all .8s ease;
         overflow: hidden;
@@ -66,7 +67,8 @@
         background-blend-mode: screen;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        border-radius: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
 
         &-1 {
             // we move one level up because this code will be compile and shifted to css/style.css from where img folder is only one level
@@ -102,6 +104,7 @@
         // remove this and check heading of the card it has padding in one line and not in the other as by default entire heading is inline element so to fix that we have this property
         // this doesn not work in chrome without webkit prefix
         -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
 
         &-1 {
             background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85));
@@ -162,7 +165,10 @@
     }
 
 
-    @include respond(tab-port) {
+    // @include respond(tab-port) {
+    // for hoverable devices do hover:hover
+    @media only screen and (max-width:56.25em),
+    only screen and (hover:none) {
         height: auto;
         border-radius: 3px;
         background-color: $color-white;
@@ -183,10 +189,6 @@
         &:hover &__side--front {
             transform: rotateY(0);
         }
-
-        // &:hover &__side--back {
-        //     transform: rotateY(0);
-        // }
 
         &__details {
             padding: 1rem 3rem;

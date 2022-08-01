@@ -33,10 +33,20 @@
         // first value is radius and others specify centers
         // only works when element have dimension given height and width
 
-        shape-outside: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
+        // -webkit-clip-path: circle(50% at 50% 50%);
+        // clip-path: circle(50% at 50% 50%);
         // best way to give space around and element which is floated is using transform it is good if we don't mess with margins etc
         transform: translateX(-3rem) skewX(12deg);
+        overflow: hidden;
+        
+        
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+            border-radius: none;
+        }
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0)
@@ -54,7 +64,7 @@
         transform: skewX(12deg);
 
         @include respond(phone) {
-            transform:  skewX(0)
+            transform: skewX(0)
         }
     }
 

@@ -3,7 +3,7 @@ body {
     font-weight: 400;
     /* font-size: 1.6rem; */
     line-height: 1.7;
-    color: #777;
+    color: $color-grey-dark;
 }
 
 .heading-primary {
@@ -13,8 +13,6 @@ body {
     /**allows to see us back part of the element  */
     backface-visibility: hidden;
     margin-bottom: 6rem;
-
-
 
     &--main {
         display: block;
@@ -33,6 +31,7 @@ body {
 
         @include respond(phone) {
             letter-spacing: .5rem;
+            font-size: 5rem;
         }
     }
 
@@ -45,6 +44,10 @@ body {
         /* animation-duration: 1s; */
         /* shorthand property for animation */
         animation: moveInRight 1s ease-out;
+
+        @include respond(phone){
+            letter-spacing: .5rem;
+        }
     }
 }
 

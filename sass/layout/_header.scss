@@ -1,17 +1,42 @@
 .header {
     position: relative;
-    height: 95vh;
+    height: 85vh;
     /* first one will be on top of second and so on */
     // this works only  with sass where you can write hexadecimal color in rgba
-    background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero.jpg);
+    background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero-small.jpg);
     background-size: cover;
     background-position: top;
     /** CLIP PATH: polygon accepts 4 coordinates which will give you polygon of any element, coordinate should be in clocwise direction (top left, top right, bottom right, bottom left)   */
     /*! this percentage values are wrt element, top left (0,0), top-center (50%,0), top-right(100%,0), bottom-right (100%,100%), bottom-left (0,100%) , bottom-center (50% 100%) */
     /**  you can use any units like %, rem, px, vh, vw etc  */
     /** use clippy tool to make your life easy  */
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    // -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    // clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
+
+
+
+    // media queries are not only available for screen sizes you can use them with other things also like resolution, screen media etc
+    // , seperated queries are considered as or in logical operator
+    // webkit-min-device-pixel-ratio is for supporting safari
+    @media only screen and (min-resolution: 192dpi) and (min-width:37.5em),
+            only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width:37.5em),
+            only screen and (min-width:125em) {
+                background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+                url(../img/hero.jpg);
+    }
+
+    // @media  {
+    //     background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+    //         url(../img/hero.jpg);
+    // }
+
 
     @include respond(phone) {
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

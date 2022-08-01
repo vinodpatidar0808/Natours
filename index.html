@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- responsive design does not work without this line so remember not to forget this meta tag -->
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -13,10 +14,7 @@
         rel="stylesheet"
     >
 
-    <link
-        rel="stylesheet"
-        href="css/icon-font.css"
-    >
+    <!-- comment it for production  -->
     <link
         rel="stylesheet"
         href="css/icon-font.css"
@@ -92,10 +90,10 @@
                 </span>
             </h1>
             <a
-                href="#"
+                href="#section-tours"
                 class="btn btn--white btn--animated"
             >
-                Discover our toors
+                Discover our tours
             </a>
         </div>
     </header>
@@ -193,12 +191,19 @@
                         href="#"
                         class="btn-text"
                     >
-                        Lear more &rarr;
+                        Learn more &rarr;
                     </a>
                 </div>
                 <div class="col-1-of-2">
                     <div class="composition">
-                        <img
+                        <!-- we use src attribute in case user is  using a really old browser -->
+                        <!-- width descriptor -->
+                        <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" sizes="(max-width:56.25em) 20vw, (max-width:37.5em) 30vw, 300px" alt="photo 1" src="img/nat-1-large.jpg" class="composition__photo composition__photo--p1"
+                        >
+                        <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w" sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 300px" alt="photo 2" src="img/nat-2-large.jpg" class="composition__photo composition__photo--p2">
+                        <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w" sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 300px" alt="photo 3" src="img/nat-3-large.jpg" class="composition__photo composition__photo--p3"> 
+
+                        <!-- <img
                             src="img/nat-1-large.jpg"
                             alt="Photo 1"
                             class="composition__photo composition__photo--p1"
@@ -212,7 +217,7 @@
                             src="img/nat-3-large.jpg"
                             alt="Photo 3"
                             class="composition__photo composition__photo--p3"
-                        >
+                        > -->
                     </div>
                 </div>
             </div>
@@ -550,11 +555,28 @@
     </main>
     <footer class="footer">
         <div class="footer-logo-box">
-            <img
-                src="img/logo-green-2x.png"
+
+            <!-- art direction -->
+            <picture class="footer-logo">
+                <source
+                    srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                    media="(max-width:37.5em)"
+
+                >
+                <img
+                    srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+                    alt="full logo"
+                    class="footer-logo"
+                    src="img/logo-green-2x.png"
+                >
+            </picture>
+
+            <!-- this 2 source will allow browser to choose image based on the density 1x and 2x are for density  -->
+            <!-- <img
+                srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
                 alt="full logo"
                 class="footer-logo"
-            >
+            > -->
         </div>
         <div class="row">
             <div class="col-1-of-2">
@@ -585,7 +607,7 @@
             </div>
             <div class="col-1-of-2">
                 <p class="footer-copyright">
-                    Built with ❤️ by <a
+                    Built by <a
                         href="#"
                         class="footer-link"
                     >Vinod Patidar</a> during his <a

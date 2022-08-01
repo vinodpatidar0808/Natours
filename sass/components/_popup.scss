@@ -4,7 +4,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba($color-black, .8);
     z-index: 500;
     // with opacity: 0 content is still there it's just not visible;;
     opacity: 0;
@@ -13,6 +12,17 @@
     // there are no numbers with display property and so we can not animate it 
     // display: none;
     transition: all .3s;
+    // blurs everything other than the element to which it applies
+    background-color: rgba($color-black, .8);
+    backdrop-filter: blur(10px);
+
+    //  ask the browser if it supports certain properties, this is known as graceful degradation
+    // this is also called as feature query
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, .3);
+    }
 
     &:target {
         opacity: 1;
@@ -24,7 +34,7 @@
         @include absCenter;
         width: 75%;
         background-color: $color-white;
-        height: 50rem;
+        // height: 50rem;
         box-shadow: 0 2rem 4rem rgba($color-black, .2);
         border-radius: 3px;
         display: table;
@@ -57,6 +67,10 @@
         margin-bottom: 4rem;
 
         // this column properties also require prefixes to work in some browsers
+        -moz-column-count: 2;
+        -moz-column-gap: 4rem; //1em == 14px
+        -moz-column-rule: 1px solid $color-grey-light-2;
+        
         column-count: 2;
         column-gap: 4rem; //1em == 14px
         column-rule: 1px solid $color-grey-light-2;
@@ -93,5 +107,4 @@
         }
     }
 
-    // &-close:target {}
 }

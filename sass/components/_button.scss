@@ -12,10 +12,9 @@
         transition: all 0.2s ;
         position: relative;
         font-size: $default-font-size;
+        // change for button element
         border: none;
         cursor: pointer;
-
-        // change for button element
 
     }
 
@@ -73,7 +72,7 @@
         }
     }
 
-    .btn--animated {
+    &--animated {
         /* name, duration timing fxn, delay */
         animation: moveInBottom 0.5s ease-out .75s;
         /** backwards applys 0%  properties before animation starts  */
